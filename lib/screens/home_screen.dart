@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social_ui/constants.dart';
+import 'package:flutter_social_ui/widgets/custom_drawer.dart';
 import 'package:flutter_social_ui/widgets/following_users.dart';
 import 'package:flutter_social_ui/widgets/posts_carousel.dart';
 
@@ -17,10 +18,15 @@ class _HomeScreenState extends State<HomeScreen>
   TabController _tabController;
   PageController _pageController;
 
+  void _handleTabSelection() {
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(_handleTabSelection);
     _pageController = PageController(
       initialPage: 0,
       viewportFraction: 0.8,
@@ -63,16 +69,21 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           ),
         ),
-        body: ListView(
-          children: <Widget>[
-            FollowingUsers(),
-            PostsCarousel(
-              pageController: _pageController,
-              title: 'Posts',
-              posts: posts,
-            ),
-          ],
-        ),
+        drawer: CustomDrawer(),
+        body: _tabController.index == 0
+            ? ListView(
+                children: <Widget>[
+                  FollowingUsers(),
+                  PostsCarousel(
+                    pageController: _pageController,
+                    title: 'Posts',
+                    posts: posts,
+                  ),
+                ],
+              )
+            : Center(
+                child: Text('Not implemented yet'),
+              ),
       ),
     );
   }

@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Social Media UI',
+      title: 'Stream - Social Media UI',
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
