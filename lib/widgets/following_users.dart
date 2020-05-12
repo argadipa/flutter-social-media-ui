@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social_ui/constants.dart';
 import '../data/data.dart';
 import '../models/user_model.dart';
 
@@ -16,11 +17,7 @@ class FollowingUsers extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           child: Text(
             'Following',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2.0,
-            ),
+            style: kWidgetHeaderStyle,
           ),
         ),
         Container(
