@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social_ui/constants.dart';
+import 'package:flutter_social_ui/widgets/following_users.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -53,6 +54,11 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ],
           ),
+        ),
+        body: ListView(
+          children: <Widget>[
+            FollowingUsers(),
+          ],
         ),
       ),
     );
